@@ -1,7 +1,8 @@
+import Navbar from "./components/Navbar/Navbar";
 function App() {
     return (
         <div className="App">
-            <h1>Proyecto Diego Rincón Perez</h1>
+            <Navbar/>
         </div>
     );
 }

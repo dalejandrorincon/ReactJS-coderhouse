@@ -1,0 +1,84 @@
+//@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1220px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.navBar{
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    position: relative;
+    .navBar-Brand{
+        font-size: 3rem;
+        font-family: 'Whisper', cursive;
+        color: #131313;
+    }
+    .navBar-collapse{
+        display: flex;
+        flex-basis: auto;
+        align-items: center;
+        .navBar-nav{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 0;
+            .nav-link{
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                color: rgba(0,0,0,.55);
+                font-family: 'IBM Plex Sans', sans-serif;
+            }
+        }
+        .search{
+            width: 114px;
+            border-radius: 1rem;
+            background-clip: padding-box;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            color: #212529;
+            font-size: .875rem;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 0.375rem 0.75rem;
+        }
+    }   
+}
+a{
+    text-decoration: none;
+}
+// .header{
+//     background: #e6e6e6;
+//     height: 100px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding: 10px;
+//     .links{
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+//         list-style-type: none;
+//     }
+// }
+.navBar > .container{
+    align-items: center;
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: space-between;
+}
