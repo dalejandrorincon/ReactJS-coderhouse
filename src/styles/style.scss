@@ -44,8 +44,11 @@
                 font-family: 'IBM Plex Sans', sans-serif;
             }
         }
+        .countNumber{
+            font-family: "IBM Plex Sans", sans-serif;
+        }
         .search{
-            width: 114px;
+            width: 150px;
             border-radius: 1rem;
             background-clip: padding-box;
             background-color: #fff;
@@ -55,30 +58,26 @@
             font-weight: 400;
             line-height: 1.5;
             padding: 0.375rem 0.75rem;
+            margin-right: 15px;
         }
     }   
 }
 a{
     text-decoration: none;
 }
-// .header{
-//     background: #e6e6e6;
-//     height: 100px;
-//     width: 100%;
-//     display: flex;
-//     justify-content: flex-start;
-//     align-items: center;
-//     padding: 10px;
-//     .links{
-//         display: flex;
-//         flex-wrap: wrap;
-//         justify-content: space-between;
-//         list-style-type: none;
-//     }
-// }
 .navBar > .container{
     align-items: center;
     display: flex;
     flex-wrap: inherit;
     justify-content: space-between;
+}
+footer{
+    background-color: #f07d78;
+    font-family: "IBM Plex Sans", sans-serif;
+    h2{
+        font-weight: 400;
+        span{
+            font-family: 'Whisper', cursive;
+        }
+    }
 }
