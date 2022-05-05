@@ -1,11 +1,16 @@
-export default function ItemListContainer({category1,category2,category3}) {
-    return (
-        <div>
-            <ul>
-                <li>Ropa</li>
-                <li>Calzado</li>
-                <li>Etc</li>
-            </ul>
-        </div>
-    )
+import ItemList from "../ItemList/ItemList";
+import { Container, Row, Col } from "react-bootstrap"
+export default function ItemListContainer({ title }) {
+  return (
+    <Container>
+      <Row>
+        <Col className="my-4"><h2>{title}</h2></Col>
+      </Row>
+      <Row>
+        <Col>
+          <ItemList/>
+        </Col>
+      </Row>
+    </Container>
+  )
 }

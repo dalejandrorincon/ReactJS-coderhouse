@@ -1,18 +1,16 @@
-import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import {Container} from "react-bootstrap";
+import ItemListContainer from "./components/ItemListContainer/ItemListcontainer";
 function App() {
-    return (
-        <div className="App">
-            <Navbar/>
-            <main>
-                <Container>
-
-                </Container>
-            </main>
-            <Footer greeting={"Mulana"}/>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Header />
+      <main>
+          <ItemListContainer title={"Productos"}/>
+      </main>
+      <Footer greeting={"Mulana"} />
+    </div>
+  );
 }
 
 export default App;
