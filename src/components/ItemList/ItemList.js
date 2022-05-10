@@ -1,23 +1,32 @@
+import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap"
-import {productos}  from "../../data/productos"
+import {products}  from "../../data/products"
 import Item from "../Item/Item"
 export default function ItemList() {
-  const task = new Promise((resolve, reject) => {
+  const [productList , setProductList] = useState([]);
+  const loadProducts = new Promise((resolve, reject) => {
+    let condition = true;
     setTimeout(() => {
-      resolve(productos);
-    }, 2000)
-
+      if (condition){
+        resolve(products);
+      }
+      else{
+        reject('Los productos no se cargaron correctamente');
+      }
+    }, 3000)
   })
-  task.then((result) => {
-    console.log(result)
-  }, err => {
-    console.log(err)
-  }).catch((err) => {
-    console.log(err)
-  })
+  useEffect(() =>{
+    loadProducts.then((res)=>{
+      setProductList(res)
+    },err => {
+      console.log(err)
+    }).catch((err) => {
+      console.log(err)
+    })
+  },[])
   return (
     <Row className="justify-content-center">
-      {productos.map((product) => (
+      {productList.map((product) => (
         <Item product={product} key={product.id}/>)
       )}
     </Row>
