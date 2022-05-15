@@ -7,6 +7,7 @@ export default function ItemListContainer({ title }) {
         <Col className="my-4"><h2>{title}</h2></Col>
       </Row>
       <ItemList />
+      
     </Container>
   )
 }

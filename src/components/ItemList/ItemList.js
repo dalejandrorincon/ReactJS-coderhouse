@@ -1,34 +1,24 @@
 import { useEffect, useState } from "react";
-import { Row } from "react-bootstrap"
-import {products}  from "../../data/products"
-import Item from "../Item/Item"
+import { Row } from "react-bootstrap";
+import Item from "../Item/Item";
+import axios from "axios";
 export default function ItemList() {
-  const [productList , setProductList] = useState([]);
+  const [productList, setProductList] = useState([]);
   const loadProducts = new Promise((resolve, reject) => {
-    let condition = true;
-    setTimeout(() => {
-      if (condition){
-        resolve(products);
-      }
-      else{
-        reject('Los productos no se cargaron correctamente');
-      }
-    }, 3000)
+    resolve(axios.get("https://api.mercadolibre.com/sites/MLA/search?q=camisetas&limit=6"))
   })
-  useEffect(() =>{
-    loadProducts.then((res)=>{
-      setProductList(res)
-    },err => {
-      console.log(err)
-    }).catch((err) => {
-      console.log(err)
-    })
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      loadProducts.then((response) => {
+        setProductList(response.data.results);
+      }).catch((err) => console.log(err))
+    },2000)
+  }, [])
   return (
     <Row className="justify-content-center">
-      {productList.map((product) => (
-        <Item product={product} key={product.id}/>)
-      )}
+      {productList.map((item) => (
+        <Item product={item} key={item.id}/>)
+      )} 
     </Row>
   )
 }

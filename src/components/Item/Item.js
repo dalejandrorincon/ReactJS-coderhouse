@@ -1,12 +1,12 @@
-import { Card, Col } from "react-bootstrap"
-import ButtonCart from "../ButtonCart/ButtonCart"
+import { Card, Col, Image } from "react-bootstrap";
+import ButtonCart from "../ButtonCart/ButtonCart";
 export default function Item({ product }) {
   return (
-    <Col md="3">
+    <Col md="4" className="pb-5">
       <Card>
-        <Card.Img variant="top" src={product.image} />
+        <Image className="card-image" src={product.thumbnail} />
         <Card.Body>
-        <span className="stock">Stock: {product.stock}</span>
+          <span className="stock">Stock: {product.available_quantity}</span>
           <Card.Title>{product.title}</Card.Title>
           <span className="precio">{product.price}$</span>
           <Card.Text>
