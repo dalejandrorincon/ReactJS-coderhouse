@@ -1,36 +1,24 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import ItemListContainer from "./components/ItemListContainer/ItemListcontainer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./views/Home/Home";
-import Products from "./views/Products/Products";
-import Product from "./views/Product/Product";
-import Category from "./views/Category/Category";
 import Cart from "./views/Cart/Cart";
 
 function App() {
   return (
-    <>
     <BrowserRouter>
+    <Header />
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/productos" element={<Products/>}/>
-        <Route exact path="/producto/:id" element={<Product/>}/>
-        <Route exact path="/categoria/:categoryName" element={<Category/>}/>
+        <Route exact path="/productos" element={<ItemListContainer title={"Nuestros productos"}/>}/>
+        <Route exact path="/producto/:productId" element={<ItemDetailContainer/>}/>
+        <Route exact path="/categoria/:categoryName" element={<ItemListContainer title={"Categoria"}/>}/>
         <Route exact path="/cart" element={<Cart/>}/>
       </Routes>
+      <Footer brand={"Mulana"} />
     </BrowserRouter>
-    {/* <div className="App">
-      <Header />
-      <main>
-          <ItemListContainer title={"Productos"}/>
-          <ItemDetailContainer itemId={3} title="Detalle del producto"/>
-      </main>
-      <Footer greeting={"Mulana"} />
-    </div> */}
-    </>
   );
 }
-
 export default App;

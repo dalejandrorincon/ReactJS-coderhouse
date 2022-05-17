@@ -16,6 +16,10 @@ export default function ItemDetail({item}) {
               <Table striped bordered className="mt-3">
                 <tbody>
                   <tr>
+                    <td>Marca:</td>
+                    <td>{item.attributes[0].name}</td>
+                  </tr>
+                  <tr>
                     <td>Stock disponible:</td>
                     <td>{item.available_quantity}</td>
                   </tr>

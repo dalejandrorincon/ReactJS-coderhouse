@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import { Container, Row, Col } from "react-bootstrap"
 import axios from "axios";
-export default function ItemListContainer({ title, categoryName }) {
+import { useParams } from "react-router-dom";
+export default function ItemListContainer({ title }) {
+  const {categoryName} = useParams();
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     setTimeout(() => {
       if(categoryName){
-        axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${categoryName}&limit=9`)
-        .then((response) => { setProductList(response.data.results) })
+        axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${categoryName}&limit=2`)
+        .then((response) => { 
+          setProductList(response.data.results)
+          console.log(productList) })
         .catch((err) => console.log(err))
       }
       else{
@@ -18,12 +22,12 @@ export default function ItemListContainer({ title, categoryName }) {
       }
     }, 3000)
   }, [categoryName])
-  console.log(productList)
+
   return (
 
     <Container className="itemList-Container">
       <Row>
-        <Col className="my-4"><h2>{title}</h2></Col>
+        <Col className="my-4"><h2>{title} {categoryName}</h2></Col>
       </Row>
       <ItemList items={productList} />
     </Container>
