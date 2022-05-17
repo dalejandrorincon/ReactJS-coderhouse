@@ -1,13 +1,18 @@
 .navbar{
     background: white;
     border-bottom: 1px solid rgba(0,0,0,.1);
-    .navbar-brand{
+    .navbar-brand a{
         font-size: 3rem;
         font-family: 'Whisper', cursive;
         color: #131313;
     }
     .navbar-nav{
         align-items: center;
+        a{
+            color: rgba(0, 0, 0, 0.55);
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+        }
     }
     .navbar-collapse{
         flex-grow: 0;

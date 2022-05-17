@@ -3,7 +3,7 @@ import { Row, Col, Card, Image, Button, Table } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 export default function ItemDetail({item}) {
-  console.log(item)
+  //console.log(item);
   return (
       <Card>
         <Card.Body>
