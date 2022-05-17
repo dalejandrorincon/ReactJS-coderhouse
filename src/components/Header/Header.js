@@ -1,19 +1,23 @@
 import CartIcon from "../CartIcon/CartIcon";
-import {NavLink} from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 /* -------------------------- Bootstrap components -------------------------- */
-import { Container, Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Container, Navbar, Nav, Form, FormControl, Button, NavDropdown } from "react-bootstrap";
 export default function Header() {
   return (
     <Navbar expand="lg">
       <Container>
         <Navbar.Collapse>
           <Nav className="me-auto">
-            <NavLink to="/">Inicio</NavLink>
-            <NavLink to="/productos">Productos</NavLink>
-            <NavLink to="/cart">Contacto</NavLink>
+            <NavLink className="nav-link" to="/">Inicio</NavLink>
+            <NavLink className="nav-link" to="/productos">Productos</NavLink>
+            <NavDropdown title="Categorías">
+              <NavDropdown.Item href="/categoria/camisetas">Camisetas</NavDropdown.Item>
+              <NavDropdown.Item href="/categoria/abrigos">Abrigos</NavDropdown.Item>
+            </NavDropdown>
+            <NavLink className="nav-link" to="/cart">Contacto</NavLink>
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Brand>Mulana</Navbar.Brand>
+        <Navbar.Brand><Link to="/">Mulana</Link></Navbar.Brand>
         <Nav className="">
           <Form className="d-flex">
             <FormControl

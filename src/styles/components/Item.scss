@@ -1,10 +1,14 @@
-.card{
-    .card-image{
-        height: 350px;
-        width: auto;
-        object-fit: cover;
-    }
-    .card-title{
-        min-height: 55px;
-    }
+.card {
+	a {
+		text-align: center;
+		.card-image {
+			height: 300px;
+			width: auto;
+			object-fit: cover;
+		}
+	}
+
+	.card-title {
+		min-height: 55px;
+	}
 }

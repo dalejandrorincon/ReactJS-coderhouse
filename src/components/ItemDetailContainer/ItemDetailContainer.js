@@ -6,18 +6,21 @@ import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer() {
   const {productId} = useParams();
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const getItem = () => {
     axios.get("https://api.mercadolibre.com/sites/MLA/search?q=camisetas")
-      .then((response) => setItem(response.data.results[productId]))
-      .catch((err) => console.log(err))
+      .then((response) => {
+        setItem(response.data.results.find(element => element.id === productId)); 
+      })
+      .catch((err) => console.log(err)) 
   }
   useEffect(() => {
       getItem();
-  }, {})
+  }, [productId]) 
+  console.log(productId)
   return (
     <Container>
-        <ItemDetail item={item} key={item.id} />
+        <ItemDetail item={item} />
     </Container>
   )
 }
