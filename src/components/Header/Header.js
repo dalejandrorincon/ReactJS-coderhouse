@@ -1,4 +1,5 @@
 import CartIcon from "../CartIcon/CartIcon";
+import {NavLink} from "react-router-dom"
 /* -------------------------- Bootstrap components -------------------------- */
 import { Container, Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 export default function Header() {
@@ -7,12 +8,12 @@ export default function Header() {
       <Container>
         <Navbar.Collapse>
           <Nav className="me-auto">
-            <Nav.Link href="#">Inicio</Nav.Link>
-            <Nav.Link href="#">Productos</Nav.Link>
-            <Nav.Link href="#">Contacto</Nav.Link>
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/productos">Productos</NavLink>
+            <NavLink to="/cart">Contacto</NavLink>
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Brand href="#">Mulana</Navbar.Brand>
+        <Navbar.Brand>Mulana</Navbar.Brand>
         <Nav className="">
           <Form className="d-flex">
             <FormControl
@@ -23,7 +24,7 @@ export default function Header() {
             />
             <Button variant="outline-secondary">Buscar</Button>
           </Form>
-          <Nav.Link><CartIcon count={10} /></Nav.Link>
+          <CartIcon count={10} />
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Container>
