@@ -1,5 +1,4 @@
 import { Card, Col, Image, Button } from "react-bootstrap";
-import ButtonCart from "../ButtonCart/ButtonCart";
 import { Link } from "react-router-dom";
 export default function Item({ product }) {
   return (
@@ -13,7 +12,6 @@ export default function Item({ product }) {
           <Card.Text>
             {product.description}
           </Card.Text>
-          <ButtonCart />
           <div className="w-75 mx-auto mt-2 row">
             <Button type="button" variant="outline-secondary" href={`/producto/${product.id}`} >Ver detalles del producto</Button>
           </div>

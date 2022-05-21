@@ -17,7 +17,7 @@ export default function ItemDetailContainer() {
   useEffect(() => {
       getItem();
   }, [productId]) 
-  console.log(productId)
+  //console.log(productId)
   return (
     <Container>
         <ItemDetail item={item} />

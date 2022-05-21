@@ -21,7 +21,7 @@ export default function ItemListContainer({ title }) {
         .then((response) => { setProductList(response.data.results) }) 
         .catch((err) => console.log(err))
       }
-    }, 3000)
+    }, 2000)
   }, [categoryName])
 
   return (

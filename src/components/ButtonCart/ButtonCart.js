@@ -1,11 +1,7 @@
 import React from "react";
 import { Row } from "react-bootstrap";
-/* ---------------------------- Libreria Toastify --------------------------- */
-import { toast } from 'react-toastify';
 
-export default function ButtonCart() {
-  const [count, setCount] = React.useState(1);
-  const stock = 10;
+export default function ButtonCart({count, setCount, stock, onSubmit}) {
   /* ----------------------- funcion adicionar productos ---------------------- */
   const onAdd = () => {
     if (count < stock) {
@@ -17,19 +13,6 @@ export default function ButtonCart() {
     if (count > 1) {
       setCount(count - 1)
     }
-  }
-  /* ----------------------- funcion agregar al carrito ----------------------- */
-  const onSubmit = () => {
-
-    toast.success(`Se agregaron ${count} productos al carrito`, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   }
   /* ----------------------- Componente de presentación ----------------------- */
   const StockButton = ({ handleOnClick, text }) => {
