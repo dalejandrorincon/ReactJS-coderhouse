@@ -14,7 +14,7 @@ export default function ItemDetail({ item }) {
   const { addToCart, isInCart } = React.useContext(CartContext);
 
   /* ------------------------ Estado del Count ------------------------ */
-  const [count, setCount] = React.useState(1)
+  const [count, setCount] = React.useState(1);
   return (
     <Card>
       <Card.Body>
