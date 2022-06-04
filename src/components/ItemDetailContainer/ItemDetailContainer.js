@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios"
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer() {
   const {productId} = useParams();
-  const [item, setItem] = useState({});
+  const [item, setItem] = React.useState({});
   const getItem = () => {
     axios.get("https://api.mercadolibre.com/sites/MLA/search?q=camisetas")
       .then((response) => {
@@ -14,10 +14,9 @@ export default function ItemDetailContainer() {
       })
       .catch((err) => console.log(err)) 
   }
-  useEffect(() => {
+  React.useEffect(() => {
       getItem();
   }, [productId]) 
-  //console.log(productId)
   return (
     <Container>
         <ItemDetail item={item} />

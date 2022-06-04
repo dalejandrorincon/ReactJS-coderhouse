@@ -11,8 +11,12 @@ export default function Header() {
             <NavLink className="nav-link" to="/">Inicio</NavLink>
             <NavLink className="nav-link" to="/productos">Productos</NavLink>
             <NavDropdown title="Categorías">
-              <NavDropdown.Item href="/categoria/camisetas">Camisetas</NavDropdown.Item>
-              <NavDropdown.Item href="/categoria/abrigos">Abrigos</NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/categoria/camisetas">Camisetas</NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <NavLink to="/categoria/abrigos">Abrigos</NavLink>
+              </NavDropdown.Item>
             </NavDropdown>
             <NavLink className="nav-link" to="/cart">Contacto</NavLink>
           </Nav>

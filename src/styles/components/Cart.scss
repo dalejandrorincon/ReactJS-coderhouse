@@ -1,0 +1,29 @@
+.container {
+  .delete-all{
+    color: rgb(41, 41, 41);
+  }
+  .empty-cart {
+    height: 50vh;
+    span {
+      position: relative;
+      top: 50%;
+      a{
+        color: rgb(30, 30, 30);
+      }
+    }
+  }
+}
+
+.shopping-cart {
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+
+        img {
+          height: 100px;
+        }
+      }
+    }
+  }
+}

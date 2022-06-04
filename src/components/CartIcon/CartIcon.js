@@ -7,12 +7,16 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../../context/CartContext";
 
 export default function CartIcon(){
-    /* ------------- Se obtiene el valor del contexto con useContext en la const cart------------ */
+    /* ------------- Se obtiene el valor del contexto ----------- */
     const { cart } = React.useContext(CartContext);
+
+    let cartQuantity = cart.reduce((acc,item) => {
+        return acc + item.quantity
+    }, 0);
     return(
         <div>
             <NavLink to="/cart"><FontAwesomeIcon icon={faBasketShopping} size="2x" style={{ color: '#f07d78' }} /></NavLink>
-            <span className="countNumber">{cart.length}</span>
+            {cart.length > 0 && <span className="countNumber">{cartQuantity}</span>}
         </div>
     )
 }

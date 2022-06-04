@@ -5,22 +5,21 @@ import { toast } from 'react-toastify';
 /* -------- Creacion del contexto para ser usado en otros componentes ------- */
 const CartContext = React.createContext();
 //provider: se encarga de establecer el valor del contexto y pasar ese valor a los otros componentes
-const {Provider} = CartContext;
+const { Provider } = CartContext;
 
-const CartProvider = ({children}) => {
+const CartProvider = ({ children }) => {
   /* ----------------------- Estado inicial del carrito ----------------------- */
   const [cart, setCart] = React.useState([]);
 
   /* ---------------------------- Funcion addToCart --------------------------- */
-  const addToCart = (item , count) => {
-    //console.log(isInCart(item.id))
+  const addToCart = (item, count) => {
     /* ---------------- Valida si el producto esta en el carrito ---------------- */
-    if(isInCart(item.id)){
+    if (isInCart(item.id)) {
       console.log("cart");
       /*Se mapean los elementos del carrito, y se valida que no existan duplicados
       En caso de existir el producto, le suma una unidad a la cantidad*/
       const newCart = cart.map(cartItem => {
-        if(cartItem.id === item.id){
+        if (cartItem.id === item.id) {
           cartItem.quantity++
         }
         return cartItem;
@@ -29,20 +28,35 @@ const CartProvider = ({children}) => {
       setCart(newCart);
     }
     /* ----- Si el producto no está en el carrito, lo agrega con cantidad 1 ----- */
-    else{
-      setCart([...cart, {...item, quantity: +count}])
+    else {
+      setCart([...cart, { ...item, quantity: +count }])
     }
     /* ------------------------ Confirmacion con toastify ----------------------- */
     onAdded();
   }
-/* ---------------------------- Funcion isInCart ---------------------------- */
+  /* ------------------------- Funcion remove to Cart ------------------------- */
+  const removeFromCart = (item) => {
+    if(item.quantity == 1){
+      const newCart = cart.filter((carItem) => carItem.id !== item.id);
+      setCart(newCart)
+    }else{
+      const newCart = cart.map(cartItem => {
+        if(cartItem.id === item.id){
+            cartItem.quantity--
+        }
+        return cartItem
+      })
+      setCart(newCart);
+    }    
+  }
+  /* ---------------------------- Funcion isInCart ---------------------------- */
   /* - Valida si el item recibido se encuentra en el carrito comparando el id - */
   const isInCart = (id) => {
     return cart.find(item => item.id === id)
   }
   /* ----------------------- Función de confirmación ----------------------- */
   const onAdded = () => {
-  
+
     toast.success(`Producto añadido correctamente al carrito`, {
       position: "top-center",
       autoClose: 3000,
@@ -53,17 +67,13 @@ const CartProvider = ({children}) => {
       progress: undefined,
     });
   }
-  /* ------------------------- Funcion remove to Cart ------------------------- */
-  const removeFromCart = (id) => {
-    const newCart = cart.filter((cartItem) => cartItem.id === id)
-    setCart(newCart)
-  }
   /* --------------------------- Funcion borrar todo -------------------------- */
   const deleteAll = () => {
     setCart([]);
+    console.log("Eliminar todo")
   }
-  console.log(cart)
-  return(
+  //console.log(cart)
+  return (
     <Provider value={{
       addToCart,
       removeFromCart,
@@ -76,4 +86,4 @@ const CartProvider = ({children}) => {
   )
 }
 
-export {CartContext, CartProvider}
+export { CartContext, CartProvider }
