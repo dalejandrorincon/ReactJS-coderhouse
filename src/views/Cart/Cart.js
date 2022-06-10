@@ -50,7 +50,7 @@ export default function Cart() {
 									<td></td>
 									<td></td>
 									<td>Subtotal</td>
-									<td>{cartTotal} ARS</td>
+									<td>{cartTotal} COP</td>
 								</tr>
 							</tbody>
 						</Table>

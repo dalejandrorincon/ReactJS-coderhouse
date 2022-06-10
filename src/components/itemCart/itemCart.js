@@ -17,10 +17,10 @@ export default function ItemCart({ item }) {
           <FontAwesomeIcon icon={faCircleXmark} size="1x" />
         </Button>
       </td>
-      <td className="text-center"><Image src={item.thumbnail} /></td>
+      <td className="text-center"><Image src={item.image} /></td>
       <td>{item.title}</td>
       <td>{item.quantity}</td>
-      <td>{totalPrice} {item.currency_id}</td>
+      <td>{totalPrice} COP</td>
     </tr>
   )
 }

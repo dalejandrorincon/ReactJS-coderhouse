@@ -10,14 +10,7 @@ export default function Header() {
           <Nav className="me-auto">
             <NavLink className="nav-link" to="/">Inicio</NavLink>
             <NavLink className="nav-link" to="/productos">Productos</NavLink>
-            <NavDropdown title="Categorías">
-              <NavDropdown.Item>
-                <NavLink to="/categoria/camisetas">Camisetas</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <NavLink to="/categoria/abrigos">Abrigos</NavLink>
-              </NavDropdown.Item>
-            </NavDropdown>
+            <NavLink to="/categoria/destacados">Destacados</NavLink>
             <NavLink className="nav-link" to="/cart">Contacto</NavLink>
           </Nav>
         </Navbar.Collapse>

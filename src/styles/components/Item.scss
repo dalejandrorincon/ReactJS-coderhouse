@@ -3,12 +3,18 @@
 		text-align: center;
 		.card-image {
 			height: 300px;
-			width: auto;
+			width: 100%;
 			object-fit: cover;
 		}
 	}
 
 	.card-title {
 		min-height: 55px;
+	}
+}
+.itemDetail{
+	img{
+		width: 100%;
+		height: auto;
 	}
 }

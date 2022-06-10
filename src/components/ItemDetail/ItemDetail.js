@@ -18,9 +18,9 @@ export default function ItemDetail({ item }) {
   return (
     <Card>
       <Card.Body>
-        <Row className="align-items-center justify-content-center">
-          <Col md="6">
-            <Image src={item.thumbnail} />
+        <Row className="align-items-center justify-content-center itemDetail">
+          <Col md="3">
+            <Image src={item.image} />
           </Col>
           <Col md="4">
             <h5 className="box-title">{item.title}</h5>
@@ -28,11 +28,11 @@ export default function ItemDetail({ item }) {
               <tbody>
                 <tr>
                   <td>Stock disponible:</td>
-                  <td>{item.available_quantity}</td>
+                  <td>{item.stock}</td>
                 </tr>
                 <tr>
                   <td>Precio:</td>
-                  <td>{item.price} {item.currency_id}</td>
+                  <td>{item.price} COP</td>
                 </tr>
               </tbody>
             </Table>
@@ -45,7 +45,7 @@ export default function ItemDetail({ item }) {
                 onSubmit={() => addToCart(item, count)}
                 count={count}
                 setCount={setCount}
-                stock={item.available_quantity}
+                stock={item.stock}
               />
             }
 
