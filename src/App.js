@@ -7,6 +7,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 /* -------------------------- importacion de vistas ------------------------- */
 import Home from "./views/Home/Home";
 import Cart from "./views/Cart/Cart";
+import Checkout from "./views/Checkout/Checkout"
 /* ------------------------ Importacion del contexto ------------------------ */
 import {CartProvider} from "./context/CartContext"
 
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/producto/:productId" element={<ItemDetailContainer />} />
           <Route exact path="/categoria/:categoryName" element={<ItemListContainer title={"Listado de productos"} />} />
           <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
       </CartProvider>
       <Footer brand={"Mulana"} />

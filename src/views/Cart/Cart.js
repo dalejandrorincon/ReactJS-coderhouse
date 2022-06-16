@@ -17,22 +17,20 @@ export default function Cart() {
 	}, 0);
 	/* --------- Renderizado condicional validando el tamaño del carrito -------- */
 	return (
-		!cart.length ? 
-		<Container>
-			<Row className="empty-cart text-center">
-				<Col>
-					<span>
-						Tu carrito se encuentra vacio<br/>
-						<Link to={"/productos"}><FontAwesomeIcon icon={faArrowLeftLong}/> Regresar a la tienda</Link>
-					</span>
-				</Col>
-			</Row>
-		</Container> :
+		!cart.length ?
+			<Container>
+
+				<Row className="empty-cart text-center">
+					<Col>
+						<span>
+							Tu carrito se encuentra vacio<br />
+							<Link to={"/productos"}><FontAwesomeIcon icon={faArrowLeftLong} /> Regresar a la tienda</Link>
+						</span>
+					</Col>
+				</Row>
+			</Container> :
 			<Container className="mt-5">
 				<h1>Carrito</h1>
-				<Row className="text-end">
-					<Col md={{ span: 4, offset: 8 }}><Button variant="link" className="delete-all" onClick={() => deleteAll()}>Eliminar todo</Button></Col>
-				</Row>
 				<Row>
 					<Col>
 						<Table striped className="mt-3 shopping-cart">
@@ -55,6 +53,10 @@ export default function Cart() {
 							</tbody>
 						</Table>
 					</Col>
+				</Row>
+				<Row className="text-center mb-4 d-flex align-items-center justify-content-center">
+					<Col md="auto"><Button variant="link" className="delete-all" onClick={() => deleteAll()}>Vaciar carrito</Button></Col>			
+					<Col md="auto"><Link className="checkout-btn btn btn-rounded" to={"/checkout"}>Finalizar compra</Link></Col>
 				</Row>
 			</Container>
 	)

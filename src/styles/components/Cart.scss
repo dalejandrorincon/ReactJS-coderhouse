@@ -1,13 +1,22 @@
 .container {
-  .delete-all{
+  .delete-all {
     color: rgb(41, 41, 41);
   }
+
+  .checkout-btn{
+      color: rgb(41, 41, 41);
+      background-color: $primary;
+      color: $white;
+  }
+
   .empty-cart {
     height: 50vh;
+
     span {
       position: relative;
       top: 50%;
-      a{
+
+      a {
         color: rgb(30, 30, 30);
       }
     }
