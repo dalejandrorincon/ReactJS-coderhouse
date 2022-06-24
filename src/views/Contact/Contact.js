@@ -3,34 +3,23 @@ import { Form, Row, Col, Button, Container } from "react-bootstrap"
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 /* ---------------------------- Libreria Toastify --------------------------- */
 import { toast } from 'react-toastify';
-/* ------------------------ Importacion del contexto ------------------------ */
-import { CartContext } from "../../context/CartContext";
 
-export default function Checkout() {
+export default function Contact() {
   const [data, setData] = React.useState([]);
-  /* ------------- Se obtiene el carrito con useContext ------------ */
-  const { cart } = React.useContext(CartContext);
-
-  /* ------------------ Se calcula el valor total del carrito ----------------- */
-  let cartTotal = cart.reduce((acc, item) => {
-    return acc + (item.price * item.quantity)
-  }, 0);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setData({ ...data, [name]: value });
   }
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const order = {
-      buyer: data,
-      items: cart,
-      total: cartTotal
+    const userContact = {
+      user: data
     }
     const db = getFirestore();
-    const orderCollection = collection(db, "orders");
-    await addDoc(orderCollection, order).then(({ id }) => {
-      toast.success(`Su compra fue exitosa, id de la compra ${id}`, {
+    const contactCollection = collection(db, "Contacts");
+    addDoc(contactCollection, userContact).then(() => { 
+      toast.success(`Gracias por comunicarte con nosotros`, {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -41,11 +30,9 @@ export default function Checkout() {
       });
     });
   }
-
   return (
-
     <Container className="w-75 my-5">
-      <h2>Checkout</h2>
+      <h2>Hablemos</h2>
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col className="mb-3">
@@ -56,27 +43,7 @@ export default function Checkout() {
             <Form.Label>Apellidos</Form.Label>
             <Form.Control type="text" placeholder="Ingresa tus apellidos" name="lastName" onChange={handleChange} />
           </Col>
-          <Col className="mb-3">
-            <Form.Label>Número de identificación</Form.Label>
-            <Form.Control type="text" placeholder="DNI" name="dni" onChange={handleChange} />
-          </Col>
         </Row>
-
-        <Row>
-          <Col md="6" className="mb-3">
-            <Form.Label>Dirección de residencia</Form.Label>
-            <Form.Control type="text" placeholder="Ingresa tu dirección" name="address" onChange={handleChange} />
-          </Col>
-          <Col className="mb-3">
-            <Form.Label>Apartamento</Form.Label>
-            <Form.Control type="text" placeholder="Apartamento" name="apto" onChange={handleChange} />
-          </Col>
-          <Col className="mb-3">
-            <Form.Label>Código postal</Form.Label>
-            <Form.Control type="text" placeholder="Código postal" name="zipCode" onChange={handleChange} />
-          </Col>
-        </Row>
-
         <Row>
           <Col className="mb-3">
             <Form.Label>Dirección de Email</Form.Label>
@@ -84,6 +51,12 @@ export default function Checkout() {
             <Form.Text className="text-muted">
               Nunca compartiremos tu email con nadie más.
             </Form.Text>
+          </Col>
+        </Row>
+        <Row className="mb-3">
+          <Col>
+            <Form.Label>Dejanos tu mensaje</Form.Label>
+            <Form.Control as="textarea" rows={3} name="message" onChange={handleChange}/> 
           </Col>
         </Row>
         <Button variant="primary" type="submit">

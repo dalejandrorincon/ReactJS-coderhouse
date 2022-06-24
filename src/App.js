@@ -8,6 +8,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Home from "./views/Home/Home";
 import Cart from "./views/Cart/Cart";
 import Checkout from "./views/Checkout/Checkout"
+import Products from "./views/Products/Products";
+import Contact from "./views/Contact/Contact";
 /* ------------------------ Importacion del contexto ------------------------ */
 import {CartProvider} from "./context/CartContext"
 
@@ -17,12 +19,13 @@ function App() {
       <CartProvider>
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/productos" element={<ItemListContainer title={"Nuestros productos"} />} />
+          <Route exact path="*" element={<Home />} />
+          <Route exact path="/productos" element={<Products/>} />
           <Route exact path="/producto/:productId" element={<ItemDetailContainer />} />
-          <Route exact path="/categoria/:categoryName" element={<ItemListContainer title={"Listado de productos"} />} />
+          <Route exact path="/categoria/:categoryName" element={<ItemListContainer title={"Categoría - "} />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/contacto" element={<Contact />} />
         </Routes>
       </CartProvider>
       <Footer brand={"Mulana"} />

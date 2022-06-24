@@ -14,7 +14,7 @@ export default function CartIcon(){
         return acc + item.quantity
     }, 0);
     return(
-        <div>
+        <div className="cartIcon float-right">
             <NavLink to="/cart"><FontAwesomeIcon icon={faBasketShopping} size="2x" style={{ color: '#f07d78' }} /></NavLink>
             {cart.length > 0 && <span className="countNumber">{cartQuantity}</span>}
         </div>
